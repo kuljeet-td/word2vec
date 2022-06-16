@@ -10,7 +10,4 @@ services:
       - "8000:8000"
     networks:
       - default
-      - kgprecommenderbackend_default
-networks:
-  kgprecommenderbackend_default:
-    external: true
+
