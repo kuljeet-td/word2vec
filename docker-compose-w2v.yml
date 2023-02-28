@@ -1,0 +1,17 @@
+version: "3.3"
+services:
+  w2vec:
+    build:
+      context: .
+      dockerfile: dockerfile
+    volumes:
+    - "/home/ubuntu/wrkdir/word2vec/:/data:rw"
+    ports:
+      - "8003:8000"
+    networks:
+      - default
+      - kgprecommenderbackend_default
+
+networks:
+  kgprecommenderbackend_default:
+    external: true
