@@ -25,7 +25,8 @@ logging.info("Model has been loaded...")
 def return_vector():
     try:
         word = request.args.get('word')
-        arr = np.array([model.get_vector(word=word.strip()) for word in word.split(" ")]).mean(axis=0)
+        arr = np.array([model.get_vector(word=word.strip()) for word in word.split(" ") if word in model.vocab]).mean(
+            axis=0)
         if arr.size < 300:
             return jsonify({'data': np.zeros(shape=(300,)).tolist()}), 200
         return jsonify({'data': arr.tolist()}), 200
