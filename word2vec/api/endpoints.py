@@ -28,7 +28,7 @@ def return_vector():
         arr = np.array([model.get_vector(word=word.strip()) for word in word.split(" ")]).mean(axis=0)
         if arr.size < 300:
             return jsonify({'data': np.zeros(shape=(300,)).tolist()}), 200
-        return jsonify({'data': arr.tolist()}), arr
+        return jsonify({'data': arr.tolist()}), 200
     except Exception as e:
         logging.error(e)
         return jsonify(
