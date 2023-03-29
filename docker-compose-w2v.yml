@@ -7,9 +7,8 @@ services:
     volumes:
     - "/home/ubuntu/wrkdir/word2vec/:/data:rw"
     ports:
-      - "8003:8000"
+      - "8000:8000"
     networks:
-      - default
       - kgprecommenderbackend_default
 
 networks:
